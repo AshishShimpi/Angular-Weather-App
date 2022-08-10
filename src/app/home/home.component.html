@@ -1,8 +1,116 @@
-<div class="container">
+<div class="serach">
+    <form #f="ngForm" (submit)="onSubmit()">
+        <input type="text" name="city" placeholder="Search City" [(ngModel)]="cityName">
+    </form>
+</div>
+
+<div class="container" *ngIf="weatherData">
+
     <div class="upper-container">
-        <p>i am upper</p>
+
+        <img src="../../assets/phase-4.png" *ngIf="weatherData.currentConditions.temp <= 15">
+        <img src="../../assets/phase-1.png" *ngIf="weatherData.currentConditions.temp > 15">
+
+        <div class="weather-data">
+            <div class="location">{{weatherData.address | titlecase}}</div>
+            <div class="temperature">
+                {{weatherData.currentConditions.temp | number: '1.0-0'}}°C
+            </div>
+            <div class="feels-like">
+                Feels like {{weatherData.currentConditions.feelslike | number: '1.0-0'}} °C
+            </div>
+        </div>
+
     </div>
+
     <div class="lower-container">
-        <p>i am lower</p>
+
+        <p class="info-main-lable">More information</p>
+
+        <div class="wrapper">
+            <div class="row">
+                <div class="col">
+                    <img src="../../assets/low-temperature.svg">
+                    <p class="icon-label">Min</p>
+                </div>
+                <p class="info-label">{{weatherData.days[0].tempmin | number: '1.0-0'}}°C</p>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <img src="../../assets/high-temperature.svg">
+                    <p class="icon-label">Max</p>
+                </div>
+                <p class="info-label">{{weatherData.days[0].tempmax | number: '1.0-0'}}°C</p>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <img src="../../assets/humidity-10.svg">
+                    <p class="icon-label">Humidity</p>
+                </div>
+                <p class="info-label">{{weatherData.currentConditions.humidity}} %</p>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <img src="../../assets/wind-svg-1.svg">
+                    <p class="icon-label">Wind</p>
+                </div>
+                <p class="info-label">{{weatherData.currentConditions.windspeed}} Km/h</p>
+            </div>
+        </div>
+
     </div>
+
+</div>
+
+<div class="container" *ngIf="!weatherData">
+
+    <div class="upper-container">
+
+        <img src="../../assets/phase-4.png">
+
+        <div class="weather-data">
+            <div class="location">Britsh colombia</div>
+            <div class="temperature">{{-10.44 | number: '1.0-0'}}°C</div>
+            <div class="feels-like">Feels like -15°C</div>
+        </div>
+
+    </div>
+
+    <div class="lower-container">
+
+        <p class="info-main-lable">More information</p>
+
+        <div class="wrapper">
+            <div class="row">
+                <div class="col">
+                    <img src="../../assets/low-temperature.svg">
+                    <p class="icon-label">Min</p>
+                </div>
+                <p class="info-label">-13°C</p>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <img src="../../assets/high-temperature.svg">
+                    <p class="icon-label">Max</p>
+                </div>
+                <p class="info-label">1°C</p>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <img src="../../assets/humidity-10.svg">
+                    <p class="icon-label">Humidity</p>
+                </div>
+                <p class="info-label">2 %</p>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <img src="../../assets/wind-svg-1.svg">
+                    <p class="icon-label">Wind</p>
+                </div>
+                <p class="info-label">12 Km/h</p>
+            </div>
+        </div>
+
+    </div>
+
 </div>
