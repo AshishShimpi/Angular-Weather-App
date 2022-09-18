@@ -12,17 +12,19 @@ export class HomeComponent implements OnInit {
     constructor(private weatherService: WeatherService) { }
 
     weatherData?: WeatherData;
-    cityName: string = 'Britsh colombia';
+    cityName: string | undefined;
 
-    ngOnInit(): void { }
+    ngOnInit(): void {
+        alert('This is Dummy value. Please enter a CITY!');
+    }
 
     private getWeatherData(cityName: string) {
-        // console.log('got' , cityName);
+        
         this.weatherService.getWeatherData(cityName)
             .subscribe({
                 next: (response) => {
                     this.weatherData = response;
-                    console.log(response, "/n");
+
                 },
                 error: (error) => {
                     console.error('error caught in component', error);
@@ -31,8 +33,13 @@ export class HomeComponent implements OnInit {
     }
 
     onSubmit() {
-        this.getWeatherData(this.cityName);
-        this.cityName = ' ';
+        if (this.cityName === undefined) {
+            alert(`Please enter a city.`);
+        }
+        else {
+            this.getWeatherData(this.cityName);
+            this.cityName = ' ';
+        }
     }
 
 }
