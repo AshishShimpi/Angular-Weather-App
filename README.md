@@ -1,5 +1,16 @@
 # WeatherApp
 
+## This project is made using RapidAPI's [BestWeather API](https://rapidapi.com/standingapi-standingapi-default/api/bestweather).
+
+### To use it Please add the YOUR OWN api keys in .env file. 
+Keys are:
+
+1. weatherBaseUrl
+2. XRapidAPIKey
+3. XRapidAPIValue
+4. XRapidAPIHostKey
+5. XRapidAPIHostValue
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.3.
 
 ## Development server
