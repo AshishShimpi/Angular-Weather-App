@@ -1,9 +1,12 @@
-# WeatherApp
+# Weather App
 
 ## This project is made using RapidAPI's [BestWeather API](https://rapidapi.com/standingapi-standingapi-default/api/bestweather).
 
-### To use it Please add the YOUR OWN api keys in .env file. 
-Keys are:
+### To use it please add YOUR OWN api keys in .env file.
+#### run command `npm start` which will run a script to write .env file into environment file.
+  (approach taken to prevent exposing API keys in repo. For production, store keys in hosting service itself.)  
+  
+  Keys are:
 
 1. weatherBaseUrl
 2. XRapidAPIKey
